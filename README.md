@@ -6,6 +6,12 @@ The algorithm generates an aperiodic tiling of the following 16 tiles:
 
 ![Tiles](//github.com/josephg/wangjs/raw/master/tiles.png)
 
+The tiles use 6 colors, shown here as red, yellow, cyan, purple, green and grey.
+
+The tiles aren't uniformly distributed in the resulting image. This is their frequency distribution:
+
+![Example tiling](//github.com/josephg/wangjs/raw/master/distribution.png)
+
 # Usage
 
 The `wang(width, height, [seed])` function returns a Uint8Array of *width* x *height* tile indexes. The returned array starts with the first row, then the next row, and so on. Each tile index is an integer from 0-15, corresponding to a tile in the diagram above.
@@ -51,4 +57,9 @@ At 4,2:  1
 Or, as a picture:
 
 ![Example tiling](//github.com/josephg/wangjs/raw/master/example.png)
+
+
+# Tile distribution
+
+
 
