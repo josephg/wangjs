@@ -27,7 +27,28 @@ for(var y = 0; y < height; y++) {
 }
 ```
 
-If we were to draw that, it would look like this:
+Here's the output:
+
+```
+$ node test.js
+At 0,0:  11
+At 1,0:  3
+At 2,0:  1
+At 3,0:  9
+At 4,0:  3
+At 0,1:  0
+At 1,1:  14
+At 2,1:  13
+At 3,1:  0
+At 4,1:  12
+At 0,2:  9
+At 1,2:  5
+At 2,2:  2
+At 3,2:  8
+At 4,2:  1
+```
+
+Or, as a picture:
 
 ![Example tiling](//github.com/josephg/wangjs/raw/master/example.png)
 
