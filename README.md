@@ -4,7 +4,7 @@ This is a simple implementation of the [wang tiling algorithm](http://en.wikiped
 
 The algorithm generates an aperiodic tiling of the following 16 tiles:
 
-![Tiles](tiles.png)
+![Tiles](github.com/josephg/wangjs/raw/master/tiles.png)
 
 # Usage
 
