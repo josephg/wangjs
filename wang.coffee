@@ -18,16 +18,20 @@ botRight = [-1,12,14,13,12,12,14,13,-1,-1,-1,-1,-1,-1,-1,-1]
   src = new Uint8Array finalW * finalH
   dest = new Uint8Array finalW * finalH
 
+  # This is put in the destination array because the source and destinations
+  # are swapped after each iteration.
   dest[0] = Math.abs(Math.floor(seed)) % 16
+
+  # The width and height of the source image.
   w = h = 1
 
   while w < finalW or h < finalH
-    
     # Swap src and dest
     temp = dest
     dest = src
     src = temp
-    
+  
+    # The width and height of the destination image.
     dx = dy = 0
 
     # Do an iteration of the wang tiling algorithm, copying src -> dest.
@@ -40,11 +44,9 @@ botRight = [-1,12,14,13,12,12,14,13,-1,-1,-1,-1,-1,-1,-1,-1]
     #
     # Its extra ugly because I can't indent the loops. Aaah well.
     `for(var sy = 0; sy < h; sy++) {`
-    #for sy in [0...h]
     lastRow = dy is finalH - 1
 
     dx = 0
-    #for sx in [0...w]
 
     `for(var sx = 0; sx < w; sx++) {`
     dBase = dx + finalW * dy
@@ -70,10 +72,10 @@ botRight = [-1,12,14,13,12,12,14,13,-1,-1,-1,-1,-1,-1,-1,-1]
     if botRight[cell] != -1 and !lastRow and !lastCol
       dest[dBase + finalW + 1] = botRight[cell]
 
-    break if lastCol
+    break if dx is finalW
     `}`
 
-    dy += if botLeft[cell] == -1 then 1 else 2
+    dy += if lastRow or botLeft[cell] == -1 then 1 else 2
     break if lastRow
     `}`
 
