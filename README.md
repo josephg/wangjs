@@ -11,26 +11,23 @@ The algorithm generates an aperiodic tiling of the following 16 tiles:
 The `wang(width, height, [seed])` function returns a Uint8Array of *width* x *height* tile indexes. The returned array starts with the first row, then the next row, and so on. Each tile index is an integer from 0-15, corresponding to a tile in the diagram above.
 
 ```javascript
+// If you're using node...
+var wang = require('./wang').wang
+
 // Generate 2 rows of 5 wang tiles
 var width = 5;
-var height = 2;
+var height = 3;
 var arr = wang(width, height); // width, height
 
 // Print out the tile indexes
-for(var x = 0; x < width; x++) {
-  for(var y = 0; y < height; y++) {
-    console.log(w, h, arr[x + y * width]);
+for(var y = 0; y < height; y++) {
+  for(var x = 0; x < width; x++) {
+    console.log("At "+x+","+y + ": ", arr[x + y * width]);
   }
 }
 ```
 
-## Node
+If we were to draw that, it would look like this:
 
-Its always awkward to make a module work in node and in a browser.
-
-```javascript
-var wang = require('wang').wang;
-```
-
-
+![Example tiling](github.com/josephg/wangjs/raw/master/example.png)
 
