@@ -1,5 +1,11 @@
+# Wang tile implementation based on this paper:
+# http://www.dgp.toronto.edu/people/stam/reality/Research/pdf/R046.pdf
 
+# The tile map starts with a single tile. Each iteration each tile is expanded into 1, 2 or 4
+# other tiles based on the table in the paper. Expansion happens until the map fills the destination
+# array completely.
 
+# For a list of the tiles (with side colors), take a look at tiles.png in this directory.
 
 # Expansion rules:
 topLeft = [2,9,11,8,11,8,9,9,1,6,7,2,10,8,10,9]
