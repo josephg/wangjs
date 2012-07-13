@@ -29,5 +29,5 @@ for(var y = 0; y < height; y++) {
 
 If we were to draw that, it would look like this:
 
-![Example tiling](github.com/josephg/wangjs/raw/master/example.png)
+![Example tiling](//github.com/josephg/wangjs/raw/master/example.png)
 
