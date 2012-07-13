@@ -63,7 +63,35 @@ Or, as a picture:
 ![Example tiling](//github.com/josephg/wangjs/raw/master/example.png)
 
 
-# Tile distribution
+## Tile color list
+
+If you need it, here's a list of the colors on each tile. Each tile is described in left-top-right-bottom order.
+
+```coffeescript
+c = {r:0, y:1, b:2, g:3, p:4, w:5}
+# A list of the colors of each tile, left, top, right, bottom.
+colors = [
+  [c.r, c.y, c.y, c.r] # 0
+  [c.g, c.b, c.b, c.g] # 1
+  [c.b, c.p, c.p, c.b] # 2
+  [c.w, c.g, c.g, c.w] # 3
+
+  [c.b, c.p, c.b, c.g] # 4
+  [c.w, c.g, c.b, c.g] # 5
+  [c.g, c.b, c.p, c.b] # 6
+  [c.g, c.b, c.g, c.w] # 7
+
+  [c.p, c.r, c.g, c.y] # 8
+  [c.b, c.r, c.w, c.y] # 9
+  [c.p, c.r, c.b, c.r] # 10
+  [c.g, c.y, c.w, c.y] # 11
+
+  [c.y, c.w, c.r, c.b] # 12
+  [c.y, c.g, c.r, c.p] # 13
+  [c.y, c.w, c.y, c.g] # 14
+  [c.r, c.b, c.r, c.p] # 15
+]
+```
 
 
 
