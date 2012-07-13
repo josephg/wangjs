@@ -18,48 +18,60 @@ botRight = [-1,12,14,13,12,12,14,13,-1,-1,-1,-1,-1,-1,-1,-1]
   while w < finalW or h < finalH
     
     # Swap src and dest
-    [src, dest] = [dest, src]
+    temp = dest
+    dest = src
+    src = temp
     
     dx = dy = 0
 
     # Do an iteration of the wang tiling algorithm, copying src -> dest.
 
-    # Source x and y
-    for sy in [0...h]
-      lastRow = dy is finalH - 1
+    # Loop through source x and y, copying the expanded cells into dest.
 
-      dx = 0
-      for sx in [0...w]
-        dBase = dx + finalW * dy
-        lastCol = dx is finalW - 1
-      
-        cell = src[sx + finalW * sy]
+    # Coffeescript's for loops are complicated and slow, so I'm hand rolling some JS.
+    # If I care this much about minor tweaks, I should probably bite the bullet and rewrite
+    # the whole algorithm in javascript. But I'm lazy.
+    #
+    # Its extra ugly because I can't indent the loops. Aaah well.
+    `for(var sy = 0; sy < h; sy++) {`
+    #for sy in [0...h]
+    lastRow = dy is finalH - 1
 
-        # Top left
-        dest[dBase] = topLeft[cell]
+    dx = 0
+    #for sx in [0...w]
+
+    `for(var sx = 0; sx < w; sx++) {`
+    dBase = dx + finalW * dy
+    lastCol = dx is finalW - 1
   
-        # Top right
-        if cell not in [0,8,9,10,11] and !lastCol
-          dest[dBase + 1] = topRight[cell]
-          dx += 2
-        else
-          dx++
+    cell = src[sx + finalW * sy]
 
-        # Bot left
-        if cell not in [0,12,13,14,15] and !lastRow
-          dest[dBase + finalW] = botLeft[cell]
+    # Top left
+    dest[dBase] = topLeft[cell]
 
-        # Bot right
-        if cell in [1,2,3,4,5,6,7] and !lastRow and !lastCol
-          dest[dBase + finalW + 1] = botRight[cell]
+    # Top right
+    if topRight[cell] != -1 and !lastCol
+      dest[dBase + 1] = topRight[cell]
+      dx += 2
+    else
+      dx++
 
-        break if lastCol
+    # Bot left
+    if botLeft[cell] != -1 and !lastRow
+      dest[dBase + finalW] = botLeft[cell]
 
-      dy += if cell in [0,12,13,14,15] then 1 else 2
-      break if lastRow
+    # Bot right
+    if botRight[cell] != -1 and !lastRow and !lastCol
+      dest[dBase + finalW + 1] = botRight[cell]
+
+    break if lastCol
+    `}`
+
+    dy += if botLeft[cell] == -1 then 1 else 2
+    break if lastRow
+    `}`
 
     w = dx
     h = dy
-
 
   dest
