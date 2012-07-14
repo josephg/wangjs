@@ -1,0 +1,22 @@
+{
+  "name": "wang",
+  "version": "0.1.0",
+  "description": "Wang tile generator",
+  "main": "wang.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/josephg/wangjs.git"
+  },
+  "devDependencies": {
+    "coffee-script": "*"
+  },  
+  "keywords": [
+    "wang",
+    "tile"
+  ],
+  "author": "Joseph Gentle",
+  "license": "BSD"
+}
