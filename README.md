@@ -4,17 +4,17 @@ This is a simple implementation of the [wang tiling algorithm](http://en.wikiped
 
 The algorithm generates an aperiodic tiling of the following 16 tiles:
 
-![Tiles](//github.com/josephg/wangjs/raw/master/tiles.png)
+![Tiles](https://github.com/josephg/wangjs/raw/master/tiles.png)
 
 The tiles use 6 colors, shown here as red, yellow, cyan, purple, green and grey.
 
 The tiles aren't uniformly distributed in the resulting image. This is their frequency distribution:
 
-![Tile Frequency](//github.com/josephg/wangjs/raw/master/tile freq.png)
+![Tile Frequency](https://github.com/josephg/wangjs/raw/master/tile freq.png)
 
 And the colors aren't evenly distributed either. Here's their frequency distribution:
 
-![Color Frequency](//github.com/josephg/wangjs/raw/master/color freq.png)
+![Color Frequency](https://github.com/josephg/wangjs/raw/master/color freq.png)
 
 # Usage
 
