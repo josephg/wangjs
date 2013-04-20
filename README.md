@@ -60,7 +60,7 @@ At 4,2:  1
 
 Or, as a picture:
 
-![Example tiling](//github.com/josephg/wangjs/raw/master/example.png)
+![Example tiling](https://github.com/josephg/wangjs/raw/master/example.png)
 
 
 ## Tile color list
