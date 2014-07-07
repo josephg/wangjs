@@ -22,7 +22,7 @@ The `wang(width, height, [seed])` function returns a Uint8Array of *width* x *he
 
 ```javascript
 // If you're using node...
-var wang = require('./wang').wang
+var wang = require('wang').wang
 
 // Generate 2 rows of 5 wang tiles
 var width = 5;
