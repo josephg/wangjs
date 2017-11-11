@@ -10,11 +10,11 @@ The tiles use 6 colors, shown here as red, yellow, cyan, purple, green and grey.
 
 The tiles aren't uniformly distributed in the resulting image. This is their frequency distribution:
 
-![Tile Frequency](https://github.com/josephg/wangjs/raw/master/tile freq.png)
+![Tile Frequency](https://github.com/josephg/wangjs/raw/master/tile%20freq.png)
 
 And the colors aren't evenly distributed either. Here's their frequency distribution:
 
-![Color Frequency](https://github.com/josephg/wangjs/raw/master/color freq.png)
+![Color Frequency](https://github.com/josephg/wangjs/raw/master/color%20freq.png)
 
 # Usage
 
