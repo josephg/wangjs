@@ -37,47 +37,39 @@ botRight = [-1,12,14,13,12,12,14,13,-1,-1,-1,-1,-1,-1,-1,-1]
     # Do an iteration of the wang tiling algorithm, copying src -> dest.
 
     # Loop through source x and y, copying the expanded cells into dest.
-
-    # Coffeescript's for loops are complicated and slow, so I'm hand rolling some JS.
-    # If I care this much about minor tweaks, I should probably bite the bullet and rewrite
-    # the whole algorithm in javascript. But I'm lazy.
-    #
-    # Its extra ugly because I can't indent the loops. Aaah well.
-    `for(var sy = 0; sy < h; sy++) {`
-    lastRow = dy is finalH - 1
-
-    dx = 0
-
-    `for(var sx = 0; sx < w; sx++) {`
-    dBase = dx + finalW * dy
-    lastCol = dx is finalW - 1
+    for sy in [0...h]
+      lastRow = dy is finalH - 1
   
-    cell = src[sx + finalW * sy]
-
-    # Top left
-    dest[dBase] = topLeft[cell]
-
-    # Top right
-    if topRight[cell] != -1 and !lastCol
-      dest[dBase + 1] = topRight[cell]
-      dx += 2
-    else
-      dx++
-
-    # Bot left
-    if botLeft[cell] != -1 and !lastRow
-      dest[dBase + finalW] = botLeft[cell]
-
-    # Bot right
-    if botRight[cell] != -1 and !lastRow and !lastCol
-      dest[dBase + finalW + 1] = botRight[cell]
-
-    break if dx is finalW
-    `}`
-
-    dy += if lastRow or botLeft[cell] == -1 then 1 else 2
-    break if lastRow
-    `}`
+      dx = 0
+  
+      for sx in [0...w]
+        dBase = dx + finalW * dy
+        lastCol = dx is finalW - 1
+      
+        cell = src[sx + finalW * sy]
+    
+        # Top left
+        dest[dBase] = topLeft[cell]
+    
+        # Top right
+        if topRight[cell] != -1 and !lastCol
+          dest[dBase + 1] = topRight[cell]
+          dx += 2
+        else
+          dx++
+    
+        # Bot left
+        if botLeft[cell] != -1 and !lastRow
+          dest[dBase + finalW] = botLeft[cell]
+    
+        # Bot right
+        if botRight[cell] != -1 and !lastRow and !lastCol
+          dest[dBase + finalW + 1] = botRight[cell]
+    
+        break if dx is finalW
+  
+      dy += if lastRow or botLeft[cell] == -1 then 1 else 2
+      break if lastRow
 
     w = dx
     h = dy
